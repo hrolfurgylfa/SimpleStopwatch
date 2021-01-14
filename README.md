@@ -13,6 +13,9 @@ python -m pip install -U git+https://github.com/hrolfurgylfa/SimpleStopwatch
 This module can than be used to measure or compare performance of code like this:
 
 ```py
+from simple_stopwatch import simple_stopwatch
+
+
 sw = simple_stopwatch()
 
 sw.start_timer()
