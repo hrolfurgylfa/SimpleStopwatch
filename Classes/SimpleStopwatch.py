@@ -1,12 +1,12 @@
 # Built-in
 from datetime import timedelta
-from errors import EarlyAttributeAccess, FunctionNotAvailableInState
 from typing import List, Optional
 from math import ceil
 
 # Mine
-from State import State
-from SimpleTimer import SimpleTimer
+from Classes.SimpleTimer import SimpleTimer
+from Classes.State import State
+import Classes.errors as errors
 
 
 class SimpleStopwatch:
@@ -27,7 +27,7 @@ class SimpleStopwatch:
             self._timers.append(None)  # type: ignore
             self._timers[-1] = SimpleTimer(start_now=True)
         except AssertionError:
-            raise FunctionNotAvailableInState(
+            raise errors.FunctionNotAvailableInState(
                 "start_timer cannot be called while the timer is running."
             ) from None
 
@@ -37,7 +37,7 @@ class SimpleStopwatch:
             self._timers[-1].stop()
             self._state = State.STOPPED
         except AssertionError:
-            raise FunctionNotAvailableInState(
+            raise errors.FunctionNotAvailableInState(
                 "stop_timer cannot be called while the timer is stopped."
             ) from None
 
@@ -50,14 +50,14 @@ class SimpleStopwatch:
         try:
             assert self._state == State.STOPPED
             return [timer.duration for timer in self._timers]
-        except (EarlyAttributeAccess, AssertionError):
-            raise EarlyAttributeAccess(
+        except (errors.EarlyAttributeAccess, AssertionError):
+            raise errors.EarlyAttributeAccess(
                 "Please call stop_timer before accessing the duration of the stopwatch."
             ) from None
 
     def print_results(
         self,
-        header_str: str = "Timer Results",
+        header_str: str = "Stopwatch Results",
         header_size: Optional[int] = None,  # None means auto detect size
         header_spacer_character: str = "=",
         timer_titles: Optional[List[str]] = None,
