@@ -1,1 +1,1 @@
-from Classes.SimpleStopwatch import SimpleStopwatch
+from .SimpleStopwatch import SimpleStopwatch

@@ -4,9 +4,9 @@ from typing import List, Optional
 from math import ceil
 
 # Mine
-from Classes.SimpleTimer import SimpleTimer
-from Classes.State import State
-import Classes.errors as errors
+from simple_stopwatch.SimpleTimer import SimpleTimer
+from simple_stopwatch.State import State
+import simple_stopwatch.errors as errors
 
 
 class SimpleStopwatch:

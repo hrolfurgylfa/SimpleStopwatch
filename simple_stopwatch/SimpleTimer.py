@@ -1,7 +1,7 @@
 from time import sleep
 from typing import Optional
 from datetime import datetime, timedelta
-from Classes.errors import NoFunctionReuse, EarlyAttributeAccess
+from simple_stopwatch.errors import NoFunctionReuse, EarlyAttributeAccess
 
 
 class SimpleTimer:

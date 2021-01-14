@@ -3,7 +3,7 @@ from typing import List
 from time import sleep
 
 # Custom
-from Classes.SimpleStopwatch import SimpleStopwatch
+from simple_stopwatch import SimpleStopwatch
 
 
 sw = SimpleStopwatch()
