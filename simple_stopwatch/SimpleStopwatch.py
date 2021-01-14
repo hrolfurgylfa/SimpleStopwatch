@@ -60,13 +60,14 @@ class SimpleStopwatch:
         header_str: str = "Stopwatch Results",
         header_size: Optional[int] = None,  # None means auto detect size
         header_spacer_character: str = "=",
+        min_header_spacer_size: int = 3,
         timer_titles: Optional[List[str]] = None,
     ) -> None:
         # Setup arguments that needed lists/dicts
         if timer_titles is None:
             timer_titles = []
 
-        # Setout the output list
+        # Create the output list
         result_output_list: List[str] = []
         for i, timer in enumerate(self._timers):
             try:
@@ -79,6 +80,8 @@ class SimpleStopwatch:
         if header_size is None:
             header_size = max(len(i) for i in result_output_list)
         header_spacer_num = int(ceil((header_size - len(header_str) - 2) / 2))
+        if header_spacer_num < min_header_spacer_size:
+            header_spacer_num = min_header_spacer_size
         spacer_line = header_spacer_character * header_spacer_num
 
         # Print the results out

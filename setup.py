@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="simple-stopwatch-hrolfurgylfa",  # Replace with your own username
-    version="1.0.1",
+    version="1.0.2",
     author="Hrólfur Gylfason",
     author_email="hrolfurgylfa@protonmail.com",
     description="A small package to measure to time of different Python code.",
